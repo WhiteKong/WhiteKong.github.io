@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Python学习记录做题一时爽，一直做题一直爽 。今天下午专门做了一下学长发的Python的oj，然后悲催的发现自己原来看的知识已经忘的差不多了。。。赶紧找出工具书好好的再研究一下。做题时学习了切片中两个稍微高级一点的知识，至少书中并没有提及。记录一下免得自己睡一觉就忘干净了。切片（Slice）定义一个list：1L = [‘kuai’，‘le’，‘han’，‘jia’] 除了常规的用L[0],">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-18T14:38:47.543Z">
+<meta property="og:updated_time" content="2019-01-18T16:12:05.510Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快乐寒假.txt">
 <meta name="twitter:description" content="Python学习记录做题一时爽，一直做题一直爽 。今天下午专门做了一下学长发的Python的oj，然后悲催的发现自己原来看的知识已经忘的差不多了。。。赶紧找出工具书好好的再研究一下。做题时学习了切片中两个稍微高级一点的知识，至少书中并没有提及。记录一下免得自己睡一觉就忘干净了。切片（Slice）定义一个list：1L = [‘kuai’，‘le’，‘han’，‘jia’] 除了常规的用L[0],">
@@ -91,14 +91,14 @@
 <p>L[0:3]表示从索引0开始，直到索引3为止，但是不包括索引3，即索引0,1,2.<br>也可以从任意索引开始：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; L[<span class="number">1</span>:<span class="number">2</span>]</span><br><span class="line">[<span class="string">'le'</span>]</span><br></pre></td></tr></table></figure></p>
 <p>因为，Python也支持倒数取数L[-1]，所以其倒数切片：（记住，倒数第一个索引是-1）</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; L[<span class="number">-2</span>:]</span><br><span class="line">[<span class="string">'han'</span>, <span class="string">'jia'</span>]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; L[<span class="number">-2</span>:<span class="number">-1</span>]</span><br><span class="line">[<span class="string">'han'</span>]</span><br></pre></td></tr></table></figure>
-<p>继续往下学习后：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; m = list(range(100)) #通过range函数创建一个0-99的数列，组成一个list赋值给m</span><br><span class="line">&gt;&gt;&gt; m</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, ……,<span class="number">99</span>]</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; m[:10] #取前十个数</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line">&gt;&gt;&gt; m[-10:] #取后十个数</span><br><span class="line">[<span class="number">90</span>, <span class="number">91</span>, <span class="number">92</span>, <span class="number">93</span>, <span class="number">94</span>, <span class="number">95</span>, <span class="number">96</span>, <span class="number">97</span>, <span class="number">98</span>, <span class="number">99</span>]</span><br><span class="line">&gt;&gt;&gt; m[10:20] #取前11-20个数</span><br><span class="line">[<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>]</span><br><span class="line">&gt;&gt;&gt; m[:10:2] #前十个数中，每2个数取一个</span><br><span class="line">[<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br><span class="line">&gt;&gt;&gt; m[5:15:3] #第6-15个数中，每3个数取一个</span><br><span class="line">[<span class="number">5</span>, <span class="number">8</span>, <span class="number">11</span>, <span class="number">14</span>]</span><br><span class="line">&gt;&gt;&gt; m[::10] #所有的数中，每10个数取一个</span><br><span class="line">[<span class="number">0</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">60</span>, <span class="number">70</span>, <span class="number">80</span>, <span class="number">90</span>]</span><br><span class="line">&gt;&gt;&gt; m[:] #什么都不写，可以原样复制一个list</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>,……,<span class="number">99</span>]</span><br></pre></td></tr></table></figure>
+<p>继续往下学习后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; m = list(range(100)) #通过range函数创建一个0-99的数列，组成一个list赋值给m</span><br><span class="line">&gt;&gt;&gt; m</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, ……,99]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; m[:10] #取前十个数</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line">&gt;&gt;&gt; m[-10:] #取后十个数</span><br><span class="line">[90, 91, 92, 93, 94, 95, 96, 97, 98, 99]</span><br><span class="line">&gt;&gt;&gt; m[10:20] #取前11-20个数</span><br><span class="line">[10, 11, 12, 13, 14, 15, 16, 17, 18, 19]</span><br><span class="line">&gt;&gt;&gt; m[:10:2] #前十个数中，每2个数取一个</span><br><span class="line">[0, 2, 4, 6, 8]</span><br><span class="line">&gt;&gt;&gt; m[5:15:3] #第6-15个数中，每3个数取一个</span><br><span class="line">[5, 8, 11, 14]</span><br><span class="line">&gt;&gt;&gt; m[::10] #所有的数中，每10个数取一个</span><br><span class="line">[0, 10, 20, 30, 40, 50, 60, 70, 80, 90]</span><br><span class="line">&gt;&gt;&gt; m[:] #什么都不写，可以原样复制一个list</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 7,……,99]</span><br></pre></td></tr></table></figure>
 <p>因为用到了切片中a[::-1]和a[::2]，所以特地查了一下Python的切片并学习了一下。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/18/第一天/" data-id="cjr25jt0h000240ur9poeu14l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/18/第一天/" data-id="cjr3ja5340002g4urmjauroqw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -106,6 +106,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/01/19/第二天/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          快乐寒假.doc
+        
+      </div>
+    </a>
   
   
     <a href="/2018/12/12/My-blog/" id="article-nav-older" class="article-nav-link-wrap">
@@ -145,6 +154,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/01/19/第二天/">快乐寒假.doc</a>
+          </li>
         
           <li>
             <a href="/2019/01/18/第一天/">快乐寒假.txt</a>
