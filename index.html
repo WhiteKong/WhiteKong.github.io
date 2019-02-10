@@ -87,14 +87,14 @@
         <h2 id="Python学习记录"><a href="#Python学习记录" class="headerlink" title="Python学习记录"></a>Python学习记录</h2><p><strong>在深夜里，我悄悄的，偷偷的，学着习</strong></p>
 <p><strong>Python3导入自定义模块的3种方式</strong></p>
 <p>第一种，直接import</p>
-<p>这里有个大前提，就是你的py执行文件和模块同属于同个目录（父级目录），如下图：<br><img src="./images/QQ图片20190214230211.png" alt="enter description here"><br>^[footnote text]测试.py和hello模块同在Desktop目录里<br>^[footnote text]执行文件为 测试.py</p>
+<p>这里有个大前提，就是你的py执行文件和模块同属于同个目录（父级目录），如下图：<br><img src="./images/QQ图片20190214230211.png" alt="enter description here"><br>测试.py和hello模块同在Desktop目录里<br>]执行文件为 测试.py</p>
 <p>hello模块提供的函数：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def print_hello(name):</span><br><span class="line">	print(&quot;Hello, &quot;,name)</span><br><span class="line">	return</span><br></pre></td></tr></table></figure>
 <p>执行文件 测试.py直接import模块：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import hello  </span><br><span class="line"></span><br><span class="line">hello.print_hello(&quot;Kong&quot;)</span><br></pre></td></tr></table></figure>
 <p>运行一下 测试.py可以看到命令行窗口出现一句 Hello, Kong</p>
 <p>第二种，通过sys模块导入自定义模块的path</p>
-<p>如果执行文件和模块不在同一目录，这时候直接import是找不到自定义模块的。如下图：<br><img src="./images/QQ图片20190214231121.png" alt="enter description here"><br>^[footnote text]执行文件 测试.py 在Desktop目录下<br>^[footnote text]hello模块在Python目录下<br>sys模块是python内置的，因此我们导入自定义模块的步骤如下：</p>
+<p>如果执行文件和模块不在同一目录，这时候直接import是找不到自定义模块的。如下图：<br><img src="./images/QQ图片20190214231121.png" alt="enter description here"><br>执行文件 测试.py 在Desktop目录下<br>hello模块在Python目录下<br>sys模块是python内置的，因此我们导入自定义模块的步骤如下：</p>
 <p>先导入sys模块</p>
 <p>然后通过sys.path.append(path) 函数来导入自定义模块所在的目录</p>
 <p>导入自定义模块。</p>
@@ -102,7 +102,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"></span><br><span class="line">sys.path.append(r&quot;C:\Users\Kong\Desktop\Python&quot;)</span><br><span class="line"></span><br><span class="line">import hello</span><br><span class="line"></span><br><span class="line">hello.print_hello(&quot;Kong&quot;)</span><br></pre></td></tr></table></figure>
 <p>最后执行 测试.py文件，最终输出 Hello, Kong, 第二种方法完成</p>
 <p>第三种，通过pth文件找到自定义模块</p>
-<p>这个方法原理就是利用了系统变量，python会扫描path变量的路径来导入模块，可以在系统path里面添加。但是还是推荐使用pth文件添加。<br>模块和执行文件目录结构跟上图一样：<br><img src="./images/QQ图片20190214231121_1.png" alt="enter description here"><br>^[footnote text]执行文件 测试.py 在Desktop目录下<br>^[footnote text]hello模块在Python目录下、<br>我们创建一个 module_hello.pth 文件，里面内容就是hello模块所在的目录：</p>
+<p>这个方法原理就是利用了系统变量，python会扫描path变量的路径来导入模块，可以在系统path里面添加。但是还是推荐使用pth文件添加。<br>模块和执行文件目录结构跟上图一样：<br><img src="./images/QQ图片20190214231121_1.png" alt="enter description here"><br>执行文件 测试.py 在Desktop目录下<br>]hello模块在Python目录下、<br>我们创建一个 module_hello.pth 文件，里面内容就是hello模块所在的目录：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Kong\Desktop\Python</span><br></pre></td></tr></table></figure>
 <p>将该module_hello.pth 文件放到   python安装目录\Python35\Lib\site-packages<br>然后 测试.py导入并使用自定义模块：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import hello</span><br><span class="line"></span><br><span class="line">hello.print_hello(&quot;Kong&quot;)</span><br></pre></td></tr></table></figure>
@@ -111,7 +111,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/14/第六天/" data-id="cjs4s13cz000698ur0ryooeta" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/14/第六天/" data-id="cjs4stz1l0005fgurfw1egomj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -158,7 +158,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/14/第五天/" data-id="cjs4s13cw000498urk6vr9ckx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/14/第五天/" data-id="cjs4stz1m0006fgurpryzk21q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -190,7 +190,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Python学习记录"><a href="#Python学习记录" class="headerlink" title="Python学习记录"></a>Python学习记录</h2><p><strong>划水一时爽，沉了。。。</strong><br>在长达半个月的划水学习和半个月的忙碌后，我终于逼着自己又开始写起了博客。<br>先写一个自己当初学习时遇到的一个错误提示吧，感觉学到了不少。</p>
+        <h2 id="Python学习记录"><a href="#Python学习记录" class="headerlink" title="Python学习记录"></a>Python学习记录</h2><p><strong>划水一时爽，然后沉底了。。。</strong><br>在长达半个月的划水学习和半个月的忙碌后，我终于逼着自己又开始写起了博客。<br>先写一个自己当初学习时遇到的一个错误提示吧，感觉学到了不少。</p>
 <p><strong>Python 中 ‘unicodeescape’ codec can’t decode bytes in position XXX: trun错误解决方案</strong></p>
 <p><strong>错误背景：</strong><br>在学习OS模块时，有一个命令需要一个path，当我输入path后运行报错。<br>path = C:\Users\Kong\Desktop</p>
 <p><strong>错误原因：</strong><br>window 读取文件可以用\，但是在字符串中\是被当作转义字符来使用，所以’C:\a.txt’会被转义成’C:\a.txt’这是正确路径，所以不会报错。而‘ C:\Users\Kong\Desktop ’中经过转义之后可能就找不到路径的资源了，例如\t可能就转义成tab键了。</p>
@@ -201,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/14/第四天/" data-id="cjs4s13d1000798urhbfa1jkk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/14/第四天/" data-id="cjs4stz220007fgur9jf3rgzu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -240,7 +240,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/20/第三天/" data-id="cjs4s13cq000198urddb8j0vq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/20/第三天/" data-id="cjs4stz1h0002fgur18regmjz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -287,7 +287,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/19/第二天/" data-id="cjs4s13cu000398urj86btfn1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/19/第二天/" data-id="cjs4stz1j0004fgurxddbd11h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -332,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/18/第一天/" data-id="cjs4s13cj000098uri1xly0j0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/18/第一天/" data-id="cjs4stz1i0003fgur7fcu8zj2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -369,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/12/My-blog/" data-id="cjs4s13cs000298uruengjdi0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/12/My-blog/" data-id="cjs4stz180000fgurspeatrse" class="article-share-link">Share</a>
       
       
     </footer>
@@ -414,7 +414,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/12/hello-world/" data-id="cjs4s13cx000598urwvybq05j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/12/hello-world/" data-id="cjs4stz1e0001fgurzae4y8tl" class="article-share-link">Share</a>
       
       
     </footer>
