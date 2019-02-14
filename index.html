@@ -62,6 +62,155 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-第六天" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/14/第六天/" class="article-date">
+  <time datetime="2019-02-14T14:56:13.000Z" itemprop="datePublished">2019-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/14/第六天/">快乐寒假.iso</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Python学习记录"><a href="#Python学习记录" class="headerlink" title="Python学习记录"></a>Python学习记录</h2><p><strong>在深夜里，我悄悄的，偷偷的，学着习</strong></p>
+<p><strong>Python3导入自定义模块的3种方式</strong></p>
+<p>第一种，直接import</p>
+<p>这里有个大前提，就是你的py执行文件和模块同属于同个目录（父级目录），如下图：<br><img src="./images/QQ图片20190214230211.png" alt="enter description here"><br>^[footnote text]测试.py和hello模块同在Desktop目录里<br>^[footnote text]执行文件为 测试.py</p>
+<p>hello模块提供的函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def print_hello(name):</span><br><span class="line">	print(&quot;Hello, &quot;,name)</span><br><span class="line">	return</span><br></pre></td></tr></table></figure>
+<p>执行文件 测试.py直接import模块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import hello  </span><br><span class="line"></span><br><span class="line">hello.print_hello(&quot;Kong&quot;)</span><br></pre></td></tr></table></figure>
+<p>运行一下 测试.py可以看到命令行窗口出现一句 Hello, Kong</p>
+<p>第二种，通过sys模块导入自定义模块的path</p>
+<p>如果执行文件和模块不在同一目录，这时候直接import是找不到自定义模块的。如下图：<br><img src="./images/QQ图片20190214231121.png" alt="enter description here"><br>^[footnote text]执行文件 测试.py 在Desktop目录下<br>^[footnote text]hello模块在Python目录下<br>sys模块是python内置的，因此我们导入自定义模块的步骤如下：</p>
+<p>先导入sys模块</p>
+<p>然后通过sys.path.append(path) 函数来导入自定义模块所在的目录</p>
+<p>导入自定义模块。</p>
+<p>这时候 测试.py这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"></span><br><span class="line">sys.path.append(r&quot;C:\Users\Kong\Desktop\Python&quot;)</span><br><span class="line"></span><br><span class="line">import hello</span><br><span class="line"></span><br><span class="line">hello.print_hello(&quot;Kong&quot;)</span><br></pre></td></tr></table></figure>
+<p>最后执行 测试.py文件，最终输出 Hello, Kong, 第二种方法完成</p>
+<p>第三种，通过pth文件找到自定义模块</p>
+<p>这个方法原理就是利用了系统变量，python会扫描path变量的路径来导入模块，可以在系统path里面添加。但是还是推荐使用pth文件添加。<br>模块和执行文件目录结构跟上图一样：<br><img src="./images/QQ图片20190214231121_1.png" alt="enter description here"><br>^[footnote text]执行文件 测试.py 在Desktop目录下<br>^[footnote text]hello模块在Python目录下、<br>我们创建一个 module_hello.pth 文件，里面内容就是hello模块所在的目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Kong\Desktop\Python</span><br></pre></td></tr></table></figure>
+<p>将该module_hello.pth 文件放到   python安装目录\Python35\Lib\site-packages<br>然后 测试.py导入并使用自定义模块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import hello</span><br><span class="line"></span><br><span class="line">hello.print_hello(&quot;Kong&quot;)</span><br></pre></td></tr></table></figure>
+<p>最后执行 测试.py文件，输出 Hello, Kong. 第三种方式完成</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/14/第六天/" data-id="cjs4s13cz000698ur0ryooeta" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-第五天" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/14/第五天/" class="article-date">
+  <time datetime="2019-02-14T14:34:02.000Z" itemprop="datePublished">2019-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/14/第五天/">快乐寒假.php</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Python学习记录"><a href="#Python学习记录" class="headerlink" title="Python学习记录"></a>Python学习记录</h2><p><strong>赶紧把脑子里为数不多的存货全发出来</strong></p>
+<p><strong>Python中from…import * 语句与 import 区别</strong><br>首先，import 与 from…import 的区别：<br><strong>import：</strong> 导入一个模块；注：相当于导入的是一个文件夹，是个相对路径。<br><strong>from…import：</strong> 导入了一个模块中的一个函数；注：相当于导入的是一个文件夹中的文件，是个绝对路径。<br><strong>使用上的的区别是当引用文件时是:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import   //模块.函数</span><br><span class="line"></span><br><span class="line">from…import  // 直接使用函数名使用就可以了</span><br></pre></td></tr></table></figure>
+<p>假设有一个模块 hello.py</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def print_hello(name):</span><br><span class="line">	print(&quot;Hello, &quot;,name)</span><br><span class="line">	return</span><br></pre></td></tr></table></figure>
+<p>使用 import 引入并调用 hello 模块的正确方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#coding:GBK</span><br><span class="line"></span><br><span class="line">import hello  //导入模块</span><br><span class="line"></span><br><span class="line">hello.print_hello(&quot;Kong&quot;)  //现在可以调用模块里包含的函数了</span><br></pre></td></tr></table></figure>
+<p>提示：并不能直接使用 print_hello() 实现调用，必须将引入的模块名称当作一个对象，调用这个模块对象下的方法 print_hello，这时才能实现调用。</p>
+<p>使用 from … import 模块的正确方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#coding:GBK</span><br><span class="line"></span><br><span class="line">from hello import *  //导入模块</span><br><span class="line"></span><br><span class="line">print_hello(&quot;Kong&quot;)  //现在可以调用模块里包含的函数了</span><br></pre></td></tr></table></figure>
+<p>提示：可以直接使用 print_hello() 实现调用。<br>建议：一般来说，推荐使用 import 语句，避免使用 from … import，因为这样可以使你的程序更加易读，也可以避免名称冲突。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/14/第五天/" data-id="cjs4s13cw000498urk6vr9ckx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-第四天" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/14/第四天/" class="article-date">
+  <time datetime="2019-02-14T14:11:58.000Z" itemprop="datePublished">2019-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/14/第四天/">快乐寒假.jpg</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Python学习记录"><a href="#Python学习记录" class="headerlink" title="Python学习记录"></a>Python学习记录</h2><p><strong>划水一时爽，沉了。。。</strong><br>在长达半个月的划水学习和半个月的忙碌后，我终于逼着自己又开始写起了博客。<br>先写一个自己当初学习时遇到的一个错误提示吧，感觉学到了不少。</p>
+<p><strong>Python 中 ‘unicodeescape’ codec can’t decode bytes in position XXX: trun错误解决方案</strong></p>
+<p><strong>错误背景：</strong><br>在学习OS模块时，有一个命令需要一个path，当我输入path后运行报错。<br>path = C:\Users\Kong\Desktop</p>
+<p><strong>错误原因：</strong><br>window 读取文件可以用\，但是在字符串中\是被当作转义字符来使用，所以’C:\a.txt’会被转义成’C:\a.txt’这是正确路径，所以不会报错。而‘ C:\Users\Kong\Desktop ’中经过转义之后可能就找不到路径的资源了，例如\t可能就转义成tab键了。</p>
+<p><strong>解决办法：</strong><br>python在描述路径时可以有多种方式，现列举常见的三种</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">方式一:转义的方式</span><br><span class="line"></span><br><span class="line">&apos;C:\\a.txt&apos;</span><br><span class="line"></span><br><span class="line">方式二:显式声明字符串不用转义</span><br><span class="line"></span><br><span class="line">&apos;C:r\a.txt&apos;</span><br><span class="line"></span><br><span class="line">方式三:使用Linux的路径/</span><br><span class="line"></span><br><span class="line">&apos;C:/a.txt&apos;</span><br></pre></td></tr></table></figure>
+<p>推荐第三种写法，这在Linux和window下都是行的通的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/14/第四天/" data-id="cjs4s13d1000798urhbfa1jkk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-第三天" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/20/第三天/" class="article-date">
@@ -84,13 +233,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Python学习记录"><a href="#Python学习记录" class="headerlink" title="Python学习记录"></a>Python学习记录</h2><p><strong>努力不一定成功，但不努力真的很爽</strong><br>今天看到群里有个大佬发了个自己建的CTF网站，想着过去水几道题，在做Crypto里的栅栏密码时发现一个问题，两个在线解密的网站竟然解出来两种答案! 一脸懵逼.jpg<br>认真的研究了一下栅栏密码后，在某不知名男子的建议下我尝试自己写一个Python脚本跑一下，在冥思苦想半小时后我终于意识到依自己目前的半吊子水平是写不出来的。。。<br>于是我就在网上找了一个脚本认真研究一番，以下为脚本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#coding GBK</span><br><span class="line">e = input(&apos;请输入要解密的字符串\n&apos;)</span><br><span class="line">n = len(e) #字符串长度</span><br><span class="line">field =[]</span><br><span class="line">for i in range(2,n): #做一个循环，从2开始到数字elen（字符串长度）</span><br><span class="line">	if(n%i==0):  #计算哪些数能整除字符串</span><br><span class="line">		field.append(i) #将能整除的数字append到field里面</span><br><span class="line"></span><br><span class="line">for f in field:</span><br><span class="line">	b = n// f #用字符串长度除以上面计算出能整除的数字f</span><br><span class="line">	result = &#123;x:&apos;&apos; for x in range(b)&#125;</span><br><span class="line">	for i in range(n):  #字符串有多少位，就循环多少次</span><br><span class="line">		a = i%b</span><br><span class="line">		result.update(&#123;a:result[a] + e[i]&#125;) #字符串截断，并update新数据</span><br><span class="line">	d = &apos;&apos;</span><br><span class="line">	for i in range(b):</span><br><span class="line">		d = d + result[i]</span><br><span class="line">	print(&apos;分为&apos; + str(f) + &apos;栏时， 解密结果为 ： &apos;+d+&apos;\n&apos;) #解出结果，并开始下一个循环，直到循环结束</span><br></pre></td></tr></table></figure></p>
+        <h2 id="Python学习记录"><a href="#Python学习记录" class="headerlink" title="Python学习记录"></a>Python学习记录</h2><p><strong>努力不一定成功，但不努力真的很爽</strong></p>
+<p>今天看到群里有个大佬发了个自己建的CTF网站，想着过去水几道题，在做Crypto里的栅栏密码时发现一个问题，两个在线解密的网站竟然解出来两种答案! 一脸懵逼.jpg<br>认真的研究了一下栅栏密码后，在某不知名男子的建议下我尝试自己写一个Python脚本跑一下，冥思苦想半小时后终于意识到依自己目前的半吊子水平是写不出来的。。。<br>于是就在网上找了一个脚本认真研究一番，以下为脚本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#coding GBK</span><br><span class="line">e = input(&apos;请输入要解密的字符串\n&apos;)</span><br><span class="line">n = len(e) #字符串长度</span><br><span class="line">field =[]</span><br><span class="line">for i in range(2,n): #做一个循环，从2开始到数字elen（字符串长度）</span><br><span class="line">	if(n%i==0):  #计算哪些数能整除字符串</span><br><span class="line">		field.append(i) #将能整除的数字append到field里面</span><br><span class="line"></span><br><span class="line">for f in field:</span><br><span class="line">	b = n// f #用字符串长度除以上面计算出能整除的数字f</span><br><span class="line">	result = &#123;x:&apos;&apos; for x in range(b)&#125;</span><br><span class="line">	for i in range(n):  #字符串有多少位，就循环多少次</span><br><span class="line">		a = i%b</span><br><span class="line">		result.update(&#123;a:result[a] + e[i]&#125;) #字符串截断，并update新数据</span><br><span class="line">	d = &apos;&apos;</span><br><span class="line">	for i in range(b):</span><br><span class="line">		d = d + result[i]</span><br><span class="line">	print(&apos;分为&apos; + str(f) + &apos;栏时， 解密结果为 ： &apos;+d+&apos;\n&apos;) #解出结果，并开始下一个循环，直到循环结束</span><br></pre></td></tr></table></figure></p>
 <p>知识点比较多，等以后认真研究后再补充</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/20/第三天/" data-id="cjr50bx9t0003zcurzf18t5j7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/20/第三天/" data-id="cjs4s13cq000198urddb8j0vq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -137,7 +287,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/19/第二天/" data-id="cjr50bx9v0004zcurw0m98qx0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/19/第二天/" data-id="cjs4s13cu000398urj86btfn1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -169,7 +319,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Python学习记录"><a href="#Python学习记录" class="headerlink" title="Python学习记录"></a>Python学习记录</h2><p><strong>做题一时爽，一直做题一直爽 。</strong><br>今天下午专门做了一下学长发的Python的oj，然后悲催的发现自己原来看的知识已经忘的差不多了。。。赶紧找出工具书好好的再研究一下。<br>做题时学习了切片中两个稍微高级一点的知识，至少书中并没有提及。记录一下免得自己睡一觉就忘干净了。<br><strong>切片（Slice）</strong><br>定义一个list：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L = [‘kuai’，‘le’，‘han’，‘jia’]</span><br></pre></td></tr></table></figure></p>
+        <h2 id="Python学习记录"><a href="#Python学习记录" class="headerlink" title="Python学习记录"></a>Python学习记录</h2><p><strong>做题一时爽，一直做题一直爽 。</strong></p>
+<p>今天下午专门做了一下学长发的Python的oj，然后悲催的发现自己原来看的知识已经忘的差不多了。。。赶紧找出工具书好好的再研究一下。<br>做题时学习了切片中两个稍微高级一点的知识，至少书中并没有提及。记录一下免得自己睡一觉就忘干净了。<br><strong>切片（Slice）</strong><br>定义一个list：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L = [‘kuai’，‘le’，‘han’，‘jia’]</span><br></pre></td></tr></table></figure></p>
 <p>除了常规的用L[0], L[1], L[2]取其元素，python也提供了其他的方法，切片（Slice）.<br>例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; L[:<span class="number">3</span>]</span><br><span class="line">[<span class="string">'kuai'</span>, <span class="string">'le'</span>, <span class="string">'han'</span>]</span><br></pre></td></tr></table></figure></p>
 <p>L[0:3]表示从索引0开始，直到索引3为止，但是不包括索引3，即索引0,1,2.<br>也可以从任意索引开始：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; L[<span class="number">1</span>:<span class="number">2</span>]</span><br><span class="line">[<span class="string">'le'</span>]</span><br></pre></td></tr></table></figure></p>
 <p>因为，Python也支持倒数取数L[-1]，所以其倒数切片：（记住，倒数第一个索引是-1）</p>
@@ -177,11 +328,11 @@
 <p>继续往下学习后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; m = list(range(100)) #通过range函数创建一个0-99的数列，组成一个list赋值给m</span><br><span class="line">&gt;&gt;&gt; m</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, ……,99]</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; m[:10] #取前十个数</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line">&gt;&gt;&gt; m[-10:] #取后十个数</span><br><span class="line">[90, 91, 92, 93, 94, 95, 96, 97, 98, 99]</span><br><span class="line">&gt;&gt;&gt; m[10:20] #取前11-20个数</span><br><span class="line">[10, 11, 12, 13, 14, 15, 16, 17, 18, 19]</span><br><span class="line">&gt;&gt;&gt; m[:10:2] #前十个数中，每2个数取一个</span><br><span class="line">[0, 2, 4, 6, 8]</span><br><span class="line">&gt;&gt;&gt; m[5:15:3] #第6-15个数中，每3个数取一个</span><br><span class="line">[5, 8, 11, 14]</span><br><span class="line">&gt;&gt;&gt; m[::10] #所有的数中，每10个数取一个</span><br><span class="line">[0, 10, 20, 30, 40, 50, 60, 70, 80, 90]</span><br><span class="line">&gt;&gt;&gt; m[:] #什么都不写，可以原样复制一个list</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 7,……,99]</span><br></pre></td></tr></table></figure>
 <p>因为用到了切片中a[::-1]和a[::2]，所以特地查了一下Python的切片并学习了一下。</p>
-
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enter code here</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/18/第一天/" data-id="cjr50bx9s0002zcurniqliuc4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/18/第一天/" data-id="cjs4s13cj000098uri1xly0j0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -218,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/12/My-blog/" data-id="cjr50bx9p0001zcurr2prutit" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/12/My-blog/" data-id="cjs4s13cs000298uruengjdi0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -263,7 +414,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/12/hello-world/" data-id="cjr50bx9j0000zcurd14gnmnl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/12/hello-world/" data-id="cjs4s13cx000598urwvybq05j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -291,7 +442,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
     </div>
   </div>
 
@@ -304,23 +455,23 @@
       <ul>
         
           <li>
+            <a href="/2019/02/14/第六天/">快乐寒假.iso</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/14/第五天/">快乐寒假.php</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/14/第四天/">快乐寒假.jpg</a>
+          </li>
+        
+          <li>
             <a href="/2019/01/20/第三天/">快乐寒假.rar</a>
           </li>
         
           <li>
             <a href="/2019/01/19/第二天/">快乐寒假.doc</a>
-          </li>
-        
-          <li>
-            <a href="/2019/01/18/第一天/">快乐寒假.txt</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/12/My-blog/">第一篇</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/12/hello-world/">Hello World</a>
           </li>
         
       </ul>

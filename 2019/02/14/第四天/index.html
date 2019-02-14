@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>快乐寒假.jpg | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Python学习记录划水一时爽，沉了。。。在长达半个月的划水学习和半个月的忙碌后，我终于逼着自己又开始写起了博客。先写一个自己当初学习时遇到的一个错误提示吧，感觉学到了不少。 Python 中 ‘unicodeescape’ codec can’t decode bytes in position XXX: trun错误解决方案 错误背景：在学习OS模块时，有一个命令需要一个path，当我输入pa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快乐寒假.jpg">
+<meta property="og:url" content="http://yoursite.com/2019/02/14/第四天/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Python学习记录划水一时爽，沉了。。。在长达半个月的划水学习和半个月的忙碌后，我终于逼着自己又开始写起了博客。先写一个自己当初学习时遇到的一个错误提示吧，感觉学到了不少。 Python 中 ‘unicodeescape’ codec can’t decode bytes in position XXX: trun错误解决方案 错误背景：在学习OS模块时，有一个命令需要一个path，当我输入pa">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-14T14:33:14.346Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="快乐寒假.jpg">
+<meta name="twitter:description" content="Python学习记录划水一时爽，沉了。。。在长达半个月的划水学习和半个月的忙碌后，我终于逼着自己又开始写起了博客。先写一个自己当初学习时遇到的一个错误提示吧，感觉学到了不少。 Python 中 ‘unicodeescape’ codec can’t decode bytes in position XXX: trun错误解决方案 错误背景：在学习OS模块时，有一个命令需要一个path，当我输入pa">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-第四天" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/14/第四天/" class="article-date">
+  <time datetime="2019-02-14T14:11:58.000Z" itemprop="datePublished">2019-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      快乐寒假.jpg
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Python学习记录"><a href="#Python学习记录" class="headerlink" title="Python学习记录"></a>Python学习记录</h2><p><strong>划水一时爽，沉了。。。</strong><br>在长达半个月的划水学习和半个月的忙碌后，我终于逼着自己又开始写起了博客。<br>先写一个自己当初学习时遇到的一个错误提示吧，感觉学到了不少。</p>
+<p><strong>Python 中 ‘unicodeescape’ codec can’t decode bytes in position XXX: trun错误解决方案</strong></p>
+<p><strong>错误背景：</strong><br>在学习OS模块时，有一个命令需要一个path，当我输入path后运行报错。<br>path = C:\Users\Kong\Desktop</p>
+<p><strong>错误原因：</strong><br>window 读取文件可以用\，但是在字符串中\是被当作转义字符来使用，所以’C:\a.txt’会被转义成’C:\a.txt’这是正确路径，所以不会报错。而‘ C:\Users\Kong\Desktop ’中经过转义之后可能就找不到路径的资源了，例如\t可能就转义成tab键了。</p>
+<p><strong>解决办法：</strong><br>python在描述路径时可以有多种方式，现列举常见的三种</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">方式一:转义的方式</span><br><span class="line"></span><br><span class="line">&apos;C:\\a.txt&apos;</span><br><span class="line"></span><br><span class="line">方式二:显式声明字符串不用转义</span><br><span class="line"></span><br><span class="line">&apos;C:r\a.txt&apos;</span><br><span class="line"></span><br><span class="line">方式三:使用Linux的路径/</span><br><span class="line"></span><br><span class="line">&apos;C:/a.txt&apos;</span><br></pre></td></tr></table></figure>
+<p>推荐第三种写法，这在Linux和window下都是行的通的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/14/第四天/" data-id="cjs4s13d1000798urhbfa1jkk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/02/14/第五天/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          快乐寒假.php
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/20/第三天/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">快乐寒假.rar</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/14/第六天/">快乐寒假.iso</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/14/第五天/">快乐寒假.php</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/14/第四天/">快乐寒假.jpg</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/20/第三天/">快乐寒假.rar</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/19/第二天/">快乐寒假.doc</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

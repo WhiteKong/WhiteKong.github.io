@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>快乐寒假.iso | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Python学习记录在深夜里，我悄悄的，偷偷的，学着习 Python3导入自定义模块的3种方式 第一种，直接import 这里有个大前提，就是你的py执行文件和模块同属于同个目录（父级目录），如下图：^[footnote text]测试.py和hello模块同在Desktop目录里^[footnote text]执行文件为 测试.py hello模块提供的函数： 123def print_hell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快乐寒假.iso">
+<meta property="og:url" content="http://yoursite.com/2019/02/14/第六天/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Python学习记录在深夜里，我悄悄的，偷偷的，学着习 Python3导入自定义模块的3种方式 第一种，直接import 这里有个大前提，就是你的py执行文件和模块同属于同个目录（父级目录），如下图：^[footnote text]测试.py和hello模块同在Desktop目录里^[footnote text]执行文件为 测试.py hello模块提供的函数： 123def print_hell">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/02/14/第六天/images/QQ图片20190214230211.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/14/第六天/images/QQ图片20190214231121.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/14/第六天/images/QQ图片20190214231121_1.png">
+<meta property="og:updated_time" content="2019-02-14T15:22:00.049Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="快乐寒假.iso">
+<meta name="twitter:description" content="Python学习记录在深夜里，我悄悄的，偷偷的，学着习 Python3导入自定义模块的3种方式 第一种，直接import 这里有个大前提，就是你的py执行文件和模块同属于同个目录（父级目录），如下图：^[footnote text]测试.py和hello模块同在Desktop目录里^[footnote text]执行文件为 测试.py hello模块提供的函数： 123def print_hell">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/14/第六天/images/QQ图片20190214230211.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-第六天" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/14/第六天/" class="article-date">
+  <time datetime="2019-02-14T14:56:13.000Z" itemprop="datePublished">2019-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      快乐寒假.iso
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Python学习记录"><a href="#Python学习记录" class="headerlink" title="Python学习记录"></a>Python学习记录</h2><p><strong>在深夜里，我悄悄的，偷偷的，学着习</strong></p>
+<p><strong>Python3导入自定义模块的3种方式</strong></p>
+<p>第一种，直接import</p>
+<p>这里有个大前提，就是你的py执行文件和模块同属于同个目录（父级目录），如下图：<br><img src="./images/QQ图片20190214230211.png" alt="enter description here"><br>^[footnote text]测试.py和hello模块同在Desktop目录里<br>^[footnote text]执行文件为 测试.py</p>
+<p>hello模块提供的函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def print_hello(name):</span><br><span class="line">	print(&quot;Hello, &quot;,name)</span><br><span class="line">	return</span><br></pre></td></tr></table></figure>
+<p>执行文件 测试.py直接import模块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import hello  </span><br><span class="line"></span><br><span class="line">hello.print_hello(&quot;Kong&quot;)</span><br></pre></td></tr></table></figure>
+<p>运行一下 测试.py可以看到命令行窗口出现一句 Hello, Kong</p>
+<p>第二种，通过sys模块导入自定义模块的path</p>
+<p>如果执行文件和模块不在同一目录，这时候直接import是找不到自定义模块的。如下图：<br><img src="./images/QQ图片20190214231121.png" alt="enter description here"><br>^[footnote text]执行文件 测试.py 在Desktop目录下<br>^[footnote text]hello模块在Python目录下<br>sys模块是python内置的，因此我们导入自定义模块的步骤如下：</p>
+<p>先导入sys模块</p>
+<p>然后通过sys.path.append(path) 函数来导入自定义模块所在的目录</p>
+<p>导入自定义模块。</p>
+<p>这时候 测试.py这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"></span><br><span class="line">sys.path.append(r&quot;C:\Users\Kong\Desktop\Python&quot;)</span><br><span class="line"></span><br><span class="line">import hello</span><br><span class="line"></span><br><span class="line">hello.print_hello(&quot;Kong&quot;)</span><br></pre></td></tr></table></figure>
+<p>最后执行 测试.py文件，最终输出 Hello, Kong, 第二种方法完成</p>
+<p>第三种，通过pth文件找到自定义模块</p>
+<p>这个方法原理就是利用了系统变量，python会扫描path变量的路径来导入模块，可以在系统path里面添加。但是还是推荐使用pth文件添加。<br>模块和执行文件目录结构跟上图一样：<br><img src="./images/QQ图片20190214231121_1.png" alt="enter description here"><br>^[footnote text]执行文件 测试.py 在Desktop目录下<br>^[footnote text]hello模块在Python目录下、<br>我们创建一个 module_hello.pth 文件，里面内容就是hello模块所在的目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Kong\Desktop\Python</span><br></pre></td></tr></table></figure>
+<p>将该module_hello.pth 文件放到   python安装目录\Python35\Lib\site-packages<br>然后 测试.py导入并使用自定义模块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import hello</span><br><span class="line"></span><br><span class="line">hello.print_hello(&quot;Kong&quot;)</span><br></pre></td></tr></table></figure>
+<p>最后执行 测试.py文件，输出 Hello, Kong. 第三种方式完成</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/14/第六天/" data-id="cjs4s13cz000698ur0ryooeta" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/02/14/第五天/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">快乐寒假.php</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/14/第六天/">快乐寒假.iso</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/14/第五天/">快乐寒假.php</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/14/第四天/">快乐寒假.jpg</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/20/第三天/">快乐寒假.rar</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/19/第二天/">快乐寒假.doc</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
