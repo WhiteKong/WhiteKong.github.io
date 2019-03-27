@@ -96,24 +96,30 @@
 
 
 
-  <meta name="description" content="Python学习记录压缩包爆破">
+  <meta name="description" content="CVE-2018-12613 —本地文件包含造成远程代码执行漏洞">
 <meta property="og:type" content="article">
-<meta property="og:title" content="快乐寒假.py">
-<meta property="og:url" content="http://yoursite.com/2019/02/10/第九天/index.html">
+<meta property="og:title" content="PhpMyadmin后台文件包含">
+<meta property="og:url" content="http://yoursite.com/2019/03/27/墨者/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Python学习记录压缩包爆破">
+<meta property="og:description" content="CVE-2018-12613 —本地文件包含造成远程代码执行漏洞">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-03T08:08:28.047Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/27/墨者/images/进入环境.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/27/墨者/images/一句话木马.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/27/墨者/images/注入后.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/27/墨者/images/菜刀1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/27/墨者/images/KEY.png">
+<meta property="og:updated_time" content="2019-03-27T10:41:49.654Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="快乐寒假.py">
-<meta name="twitter:description" content="Python学习记录压缩包爆破">
+<meta name="twitter:title" content="PhpMyadmin后台文件包含">
+<meta name="twitter:description" content="CVE-2018-12613 —本地文件包含造成远程代码执行漏洞">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/27/墨者/images/进入环境.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/10/第九天/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/27/墨者/">
 
 
 
@@ -123,7 +129,7 @@
   };
 </script>
 
-  <title>快乐寒假.py | Hexo</title>
+  <title>PhpMyadmin后台文件包含 | Hexo</title>
   
 
 
@@ -288,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/10/第九天/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/墨者/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -305,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">快乐寒假.py
+          <h1 class="post-title" itemprop="name headline">PhpMyadmin后台文件包含
 
               
             
@@ -331,24 +337,12 @@
                 
               
 
-              <time title="创建时间：2019-02-10 19:08:58" itemprop="dateCreated datePublished" datetime="2019-02-10T19:08:58+08:00">2019-02-10</time>
+              <time title="创建时间：2019-03-27 18:13:14 / 修改时间：18:41:49" itemprop="dateCreated datePublished" datetime="2019-03-27T18:13:14+08:00">2019-03-27</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-03 16:08:28" itemprop="dateModified" datetime="2019-03-03T16:08:28+08:00">2019-03-03</time>
               
             
           </span>
@@ -382,11 +376,14 @@
       
 
       
-        <h2 id="Python学习记录"><a href="#Python学习记录" class="headerlink" title="Python学习记录"></a>Python学习记录</h2><p><strong>压缩包爆破</strong><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># coding=utf8</span><br><span class="line"></span><br><span class="line">import zipfile</span><br><span class="line">from threading import Thread</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def extractFile(zFile, password):</span><br><span class="line">    try:</span><br><span class="line">        zFile.extractall(pwd=password)</span><br><span class="line">    except Exception as e:</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    zFile = zipfile.ZipFile(&apos;evil.zip&apos;)</span><br><span class="line">    passFile = open(&apos;dictionary.txt&apos;)</span><br><span class="line">    for line in passFile.readlines():</span><br><span class="line">        password = line.strip(&apos;\n&apos;)</span><br><span class="line">        t = Thread(target=execfile, args=(zFile, password))</span><br><span class="line">        t.start()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:  </span><br><span class="line">    main()</span><br></pre></td></tr></table></figure></p>
-<p>其中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if __name__ == &apos;__main__&apos;:  </span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-<p>不能去掉，不明所以，研究研究</p>
-<p><a href="https://blog.csdn.net/yjk13703623757/article/details/77918633/" target="_blank" rel="noopener">如何简单地理解Python中的if <strong>name</strong> == ‘<strong>main</strong>‘</a></p>
+        <h1 id="CVE-2018-12613-—本地文件包含造成远程代码执行漏洞"><a href="#CVE-2018-12613-—本地文件包含造成远程代码执行漏洞" class="headerlink" title="CVE-2018-12613 —本地文件包含造成远程代码执行漏洞"></a>CVE-2018-12613 —本地文件包含造成远程代码执行漏洞</h1><a id="more"></a>
+<p><strong>在墨者学院的在线靶场中复现CVE-2018-12613漏洞：</strong></p>
+<p><strong>0x01 进入环境：</strong><br><img src="./images/进入环境.png" alt="enter description here"><br>进入账号root 密码root。</p>
+<p><strong>0x02：执行SQL语句：</strong><br>注入一句话木马<br><img src="./images/一句话木马.png" alt="enter description here"><br>执行<br><img src="./images/注入后.png" alt="enter description here"></p>
+<p><strong>0x03：打开中国菜刀：</strong><br>菜刀设置：<br><img src="./images/菜刀1.png" alt="enter description here"></p>
+<p><strong>0x04：寻找KEY.TXT：</strong><br>右击地址-文件管理-根目录-key.txt<br><img src="./images/KEY.png" alt="enter description here"></p>
+<p>总结：</p>
+<p>本来打算用PHPStudy搭建phpmyadmin4.8.1来复现漏洞的，结果弄到一半GG了，遂换成墨者WEB的在线靶场。但是感觉用墨者的在线靶场虽然能复现出漏洞，但对其原理领悟的并不透彻。<br>准备过两天参考一下CSDN的博客自己搭个环境复现一下</p>
 
       
     </div>
@@ -417,8 +414,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/10/第八天/" rel="next" title="快乐寒假.ppt">
-                <i class="fa fa-chevron-left"></i> 快乐寒假.ppt
+              <a href="/2019/02/14/第六天/" rel="next" title="快乐寒假.iso">
+                <i class="fa fa-chevron-left"></i> 快乐寒假.iso
               </a>
             
           </div>
@@ -426,10 +423,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/14/第四天/" rel="prev" title="快乐寒假.jpg">
-                快乐寒假.jpg <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -540,7 +533,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python学习记录"><span class="nav-number">1.</span> <span class="nav-text">Python学习记录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CVE-2018-12613-—本地文件包含造成远程代码执行漏洞"><span class="nav-number">1.</span> <span class="nav-text">CVE-2018-12613 —本地文件包含造成远程代码执行漏洞</span></a></li></ol></div>
             
 
           </div>
