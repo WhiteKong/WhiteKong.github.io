@@ -105,8 +105,8 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/02/14/第六天/one.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/14/第六天/two.png">
-<meta property="og:image" content="http://yoursite.com/2019/02/14/第六天/two_1.png">
-<meta property="og:updated_time" content="2019-03-27T12:33:08.039Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/14/第六天/two.png">
+<meta property="og:updated_time" content="2019-03-27T12:35:24.706Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快乐寒假.iso">
 <meta name="twitter:description" content="Python学习记录Python3导入自定义模块的3种方式">
@@ -352,7 +352,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-27 20:33:08" itemprop="dateModified" datetime="2019-03-27T20:33:08+08:00">2019-03-27</time>
+                <time title="修改时间：2019-03-27 20:35:24" itemprop="dateModified" datetime="2019-03-27T20:35:24+08:00">2019-03-27</time>
               
             
           </span>
@@ -402,7 +402,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"></span><br><span class="line">sys.path.append(r&quot;C:\Users\Kong\Desktop\Python&quot;)</span><br><span class="line"></span><br><span class="line">import hello</span><br><span class="line"></span><br><span class="line">hello.print_hello(&quot;Kong&quot;)</span><br></pre></td></tr></table></figure>
 <p>最后执行 测试.py文件，最终输出 Hello, Kong, 第二种方法完成</p>
 <p>第三种，通过pth文件找到自定义模块</p>
-<p>这个方法原理就是利用了系统变量，python会扫描path变量的路径来导入模块，可以在系统path里面添加。但是还是推荐使用pth文件添加。<br>模块和执行文件目录结构跟上图一样：<br><img src="/2019/02/14/第六天/two_1.png" alt=""><br>执行文件 测试.py 在Desktop目录下<br>hello模块在Python目录下、<br>我们创建一个 module_hello.pth 文件，里面内容就是hello模块所在的目录：</p>
+<p>这个方法原理就是利用了系统变量，python会扫描path变量的路径来导入模块，可以在系统path里面添加。但是还是推荐使用pth文件添加。<br>模块和执行文件目录结构跟上图一样：<br><img src="/2019/02/14/第六天/two.png" alt=""><br>执行文件 测试.py 在Desktop目录下<br>hello模块在Python目录下、<br>我们创建一个 module_hello.pth 文件，里面内容就是hello模块所在的目录：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Kong\Desktop\Python</span><br></pre></td></tr></table></figure>
 <p>将该module_hello.pth 文件放到   python安装目录\Python35\Lib\site-packages<br>然后 测试.py导入并使用自定义模块：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import hello</span><br><span class="line"></span><br><span class="line">hello.print_hello(&quot;Kong&quot;)</span><br></pre></td></tr></table></figure>
