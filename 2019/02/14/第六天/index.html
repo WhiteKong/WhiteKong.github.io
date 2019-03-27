@@ -103,14 +103,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Python学习记录Python3导入自定义模块的3种方式">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/02/14/第六天/images/QQ图片20190214230211.png">
-<meta property="og:image" content="http://yoursite.com/2019/02/14/第六天/images/QQ图片20190214231121.png">
-<meta property="og:image" content="http://yoursite.com/2019/02/14/第六天/images/QQ图片20190214231121_1.png">
-<meta property="og:updated_time" content="2019-03-03T08:14:51.165Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/14/第六天/one.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/14/第六天/two.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/14/第六天/two_1.png">
+<meta property="og:updated_time" content="2019-03-27T12:33:08.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快乐寒假.iso">
 <meta name="twitter:description" content="Python学习记录Python3导入自定义模块的3种方式">
-<meta name="twitter:image" content="http://yoursite.com/2019/02/14/第六天/images/QQ图片20190214230211.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/14/第六天/one.png">
 
 
 
@@ -352,7 +352,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-03 16:14:51" itemprop="dateModified" datetime="2019-03-03T16:14:51+08:00">2019-03-03</time>
+                <time title="修改时间：2019-03-27 20:33:08" itemprop="dateModified" datetime="2019-03-27T20:33:08+08:00">2019-03-27</time>
               
             
           </span>
@@ -387,14 +387,14 @@
 
       
         <h2 id="Python学习记录"><a href="#Python学习记录" class="headerlink" title="Python学习记录"></a>Python学习记录</h2><p><strong>Python3导入自定义模块的3种方式</strong><br><a id="more"></a><br>第一种，直接import</p>
-<p>这里有个大前提，就是你的py执行文件和模块同属于同个目录（父级目录），如下图：<br><img src="/2019/02/14/第六天/./images/QQ图片20190214230211.png" alt="enter description here"><br>测试.py和hello模块同在Desktop目录里<br>执行文件为 测试.py</p>
+<p>这里有个大前提，就是你的py执行文件和模块同属于同个目录（父级目录），如下图：<br><img src="/2019/02/14/第六天/one.png" alt=""><br>测试.py和hello模块同在Desktop目录里<br>执行文件为 测试.py</p>
 <p>hello模块提供的函数：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def print_hello(name):</span><br><span class="line">	print(&quot;Hello, &quot;,name)</span><br><span class="line">	return</span><br></pre></td></tr></table></figure>
 <p>执行文件 测试.py直接import模块：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import hello  </span><br><span class="line"></span><br><span class="line">hello.print_hello(&quot;Kong&quot;)</span><br></pre></td></tr></table></figure>
 <p>运行一下 测试.py可以看到命令行窗口出现一句 Hello, Kong</p>
 <p>第二种，通过sys模块导入自定义模块的path</p>
-<p>如果执行文件和模块不在同一目录，这时候直接import是找不到自定义模块的。如下图：<br><img src="/2019/02/14/第六天/./images/QQ图片20190214231121.png" alt="enter description here"><br>执行文件 测试.py 在Desktop目录下<br>hello模块在Python目录下<br>sys模块是python内置的，因此我们导入自定义模块的步骤如下：</p>
+<p>如果执行文件和模块不在同一目录，这时候直接import是找不到自定义模块的。如下图：<br><img src="/2019/02/14/第六天/two.png" alt=""><br>执行文件 测试.py 在Desktop目录下<br>hello模块在Python目录下<br>sys模块是python内置的，因此我们导入自定义模块的步骤如下：</p>
 <p>先导入sys模块</p>
 <p>然后通过sys.path.append(path) 函数来导入自定义模块所在的目录</p>
 <p>导入自定义模块。</p>
@@ -402,7 +402,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"></span><br><span class="line">sys.path.append(r&quot;C:\Users\Kong\Desktop\Python&quot;)</span><br><span class="line"></span><br><span class="line">import hello</span><br><span class="line"></span><br><span class="line">hello.print_hello(&quot;Kong&quot;)</span><br></pre></td></tr></table></figure>
 <p>最后执行 测试.py文件，最终输出 Hello, Kong, 第二种方法完成</p>
 <p>第三种，通过pth文件找到自定义模块</p>
-<p>这个方法原理就是利用了系统变量，python会扫描path变量的路径来导入模块，可以在系统path里面添加。但是还是推荐使用pth文件添加。<br>模块和执行文件目录结构跟上图一样：<br><img src="/2019/02/14/第六天/./images/QQ图片20190214231121_1.png" alt="enter description here"><br>执行文件 测试.py 在Desktop目录下<br>hello模块在Python目录下、<br>我们创建一个 module_hello.pth 文件，里面内容就是hello模块所在的目录：</p>
+<p>这个方法原理就是利用了系统变量，python会扫描path变量的路径来导入模块，可以在系统path里面添加。但是还是推荐使用pth文件添加。<br>模块和执行文件目录结构跟上图一样：<br><img src="/2019/02/14/第六天/two_1.png" alt=""><br>执行文件 测试.py 在Desktop目录下<br>hello模块在Python目录下、<br>我们创建一个 module_hello.pth 文件，里面内容就是hello模块所在的目录：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Kong\Desktop\Python</span><br></pre></td></tr></table></figure>
 <p>将该module_hello.pth 文件放到   python安装目录\Python35\Lib\site-packages<br>然后 测试.py导入并使用自定义模块：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import hello</span><br><span class="line"></span><br><span class="line">hello.print_hello(&quot;Kong&quot;)</span><br></pre></td></tr></table></figure>
