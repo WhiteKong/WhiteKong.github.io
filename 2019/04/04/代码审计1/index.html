@@ -62,14 +62,14 @@
         </div>
         <div class="content markdown">
             <h1 id="WebShell代码分析溯源"><a href="#WebShell代码分析溯源" class="headerlink" title="WebShell代码分析溯源"></a>WebShell代码分析溯源</h1><a id="more"></a>
-<p>首先先启动在线靶场<br><img src="/2019/04/04/代码审计1/代码审计/进入环境.png" alt=""><br>下载系统源码，解压查看<br><img src="/2019/04/04/代码审计1/代码审计/查看.png" alt=""><br>我是把PHP文件每个都点开看了一下，然后发现这个<strong>pic3.jpg.php</strong>文件不寻常<br><img src="/2019/04/04/代码审计1/代码审计/一句话木马.png" alt=""><br>经过一番百度，确定这个是由<strong>回调函数array_map</strong>构成的一句话木马<br>继续百度<strong>用回调函数构成的一句话木马</strong>发现<br>回调函数所用的插入函数为<strong>assert函数</strong><br>例：<br><img src="/2019/04/04/代码审计1/代码审计/举例1.png" alt=""><br>又如：<br><img src="/2019/04/04/代码审计1/代码审计/举例2.png" alt=""><br>再由题目中提示的Base64可以确定<br>我们需要让<strong>e等于assert进行base64编码后的值，既YXNzZXJ0</strong></p>
+<p>首先先启动在线靶场<br><img src="/2019/04/04/代码审计1/进入环境.png" alt=""><br>下载系统源码，解压查看<br><img src="/2019/04/04/代码审计1/查看.png" alt=""><br>我是把PHP文件每个都点开看了一下，然后发现这个<strong>pic3.jpg.php</strong>文件不寻常<br><img src="/2019/04/04/代码审计1/一句话木马.png" alt=""><br>经过一番百度，确定这个是由<strong>回调函数array_map</strong>构成的一句话木马<br>继续百度<strong>用回调函数构成的一句话木马</strong>发现<br>回调函数所用的插入函数为<strong>assert函数</strong><br>例：<br><img src="/2019/04/04/代码审计1/举例1.png" alt=""><br>又如：<br><img src="/2019/04/04/代码审计1/举例2.png" alt=""><br>再由题目中提示的Base64可以确定<br>我们需要让<strong>e等于assert进行base64编码后的值，既YXNzZXJ0</strong></p>
 <p>顺清思路后，构造url连接菜刀</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://219.153.49.228:44822/www/Assets/upload/pic3.jpg.php?e=YXNzZXJ0</span><br></pre></td></tr></table></figure>
-<p>如图：<br><img src="/2019/04/04/代码审计1/代码审计/菜刀.png" alt=""><br>翻翻找找，找到key一枚：<br><img src="/2019/04/04/代码审计1/代码审计/KEY.png" alt=""></p>
+<p>如图：<br><img src="/2019/04/04/代码审计1/菜刀.png" alt=""><br>翻翻找找，找到key一枚：<br><img src="/2019/04/04/代码审计1/KEY.png" alt=""></p>
 <p>输入key值，完成。</p>
 <h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><p>说实话这一次没有直接看WP而是自己动手做题真的特别累，先是搜索了如何注入一句话木马让菜刀能获取网站的管理，又搜索了回调函数的一句话木马，一知半解摸索着做题，最后也是在别人的提醒下才知道在构造url时需要让e=assert的base64编码，很少接触WEB题所以不容易找到解题的突破口，菜是原罪。</p>
-<p>吐槽：做题时网页窗口真的是爆满<br><img src="/2019/04/04/代码审计1/代码审计/吐槽.png" alt=""></p>
-<p>PS：做完题看墨者的解题思路，发现一个知识点：<br><img src="/2019/04/04/代码审计1/代码审计/知识点.png" alt=""></p>
+<p>吐槽：做题时网页窗口真的是爆满<br><img src="/2019/04/04/代码审计1/吐槽.png" alt=""></p>
+<p>PS：做完题看墨者的解题思路，发现一个知识点：<br><img src="/2019/04/04/代码审计1/知识点.png" alt=""></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
